@@ -32,7 +32,7 @@ app.use(session({
   secret: 'your-secret-key',
   resave: false,
   saveUninitialized: false,
-  store: MongoStore.create({ mongoUrl: process.env.MONGO_URI || 'mongodb://localhost:27017/yourdb' }),
+  store: MongoStore.create({ mongoUrl: process.env.MONGO_URI || 'mongodb+srv://krao09672:yadavAutomobiles168451321215645512554621545456@cluster0.vy8mxjj.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0' }),
   cookie: { 
     secure: false,
     maxAge: 24 * 60 * 60 * 1000
