@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Feedback - Hero Two-Wheeler Shop</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <style>
+    body {
+      background: linear-gradient(135deg, #1e3c72, #2a5298);
+      color: white;
+    }
+    .feedback-container {
+      max-width: 600px;
+      background: rgba(255, 255, 255, 0.1);
+      backdrop-filter: blur(10px);
+      padding: 30px;
+      border-radius: 15px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    }
+    .form-control,
+    .btn {
+      border-radius: 10px;
+    }
+  </style>
+</head>
+<body>
+  {{> header}}
+
+  <div class="container d-flex justify-content-center align-items-center vh-100">
+    <div class="feedback-container text-center">
+      <h2 class="mb-4">We Value Your Feedback</h2>
+      <p>Your opinion helps us improve our services. Please share your thoughts below.</p>
+
+      <form id="feedbackForm">
+        <div class="mb-3">
+          <label class="form-label">Full Name</label>
+          <input type="text" name="name" class="form-control" placeholder="Enter your name" required />
+        </div>
+        <div class="mb-3">
+          <label class="form-label">Email</label>
+          <input type="email" name="email" class="form-control" placeholder="Enter your email" required />
+        </div>
+        <div class="mb-3">
+          <label class="form-label">Your Feedback</label>
+          <textarea name="feedback" class="form-control" rows="4" placeholder="Write your feedback here..." required></textarea>
+        </div>
+        <button type="submit" class="btn btn-light w-100">Submit Feedback</button>
+      </form>
+    </div>
+  </div>
+
+  <!-- Toast Notification -->
+  <div class="toast-container position-fixed bottom-0 end-0 p-3">
+    <div id="toastSuccess" class="toast align-items-center text-white bg-success border-0" role="alert" aria-live="assertive" aria-atomic="true">
+      <div class="d-flex">
+        <div class="toast-body">
+           Feedback submitted successfully!
+        </div>
+        <button type="button" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast"></button>
+      </div>
+    </div>
+  </div>
+
+  {{> footer}}
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+  <script>
+    document.getElementById('feedbackForm').addEventListener('submit', async function (e) {
+      e.preventDefault();
+
+      const form = e.target;
+      const formData = new FormData(form);
+      const data = Object.fromEntries(formData.entries());
+
+      try {
+        const response = await fetch('/submit-feedback', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify(data)
+        });
+
+        if (response.ok) {
+          const toastElement = new bootstrap.Toast(document.getElementById('toastSuccess'));
+          toastElement.show();
+          form.reset();
+        } else {
+          alert("Error submitting feedback.");
+        }
+      } catch (error) {
+        console.error('Submission failed:', error);
+        alert("Something went wrong.");
+      }
+    });
+  </script>
+</body>
+</html>

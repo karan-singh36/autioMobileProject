@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us - Bike Showroom</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+          
+            color: white;
+            font-family: 'Poppins', sans-serif;
+        }
+        .content-container {
+            max-width: 900px;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            padding: 40px;
+            border-radius: 15px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+        }
+        .navbar {
+            background-color: rgba(0, 0, 0, 0.8);
+        }
+        .footer {
+            text-align: center;
+            padding: 10px;
+            margin-top: 20px;
+            background: rgba(0, 0, 0, 0.8);
+        }
+    </style>
+</head>
+<body>
+   {{> header}}
+    <div class="container d-flex flex-column justify-content-center align-items-center py-5">
+        <div class="content-container text-center">
+            <h1>About Us</h1>
+            <section>
+                <h2>Our Company</h2>
+                <p>We are a leading bike showroom offering the best selection of two-wheelers in the market. From sports bikes to everyday commuters, we provide a range of high-performance and reliable bikes.</p>
+            </section>
+            <section>
+                <h2>Our Mission</h2>
+                <p>Our mission is to provide high-quality bikes that cater to the needs of our customers with top-tier service. We aim to offer an unparalleled buying experience, ensuring customer satisfaction and trust.</p>
+            </section>
+            <section>
+                <h2>Why Choose Us?</h2>
+                <ul class="text-start">
+                    <li>Wide range of top-brand bikes available.</li>
+                    <li>Affordable pricing with flexible financing options.</li>
+                    <li>Certified mechanics for after-sales services and repairs.</li>
+                    <li>Customer-first approach with excellent support.</li>
+                </ul>
+            </section>
+            <section>
+                <h2>Our Services</h2>
+                <p>We not only sell bikes but also provide premium services, including:</p>
+                <ul class="text-start">
+                    <li>Bike servicing and maintenance.</li>
+                    <li>Custom modifications and accessories.</li>
+                    <li>Test rides for all models.</li>
+                    <li>Easy EMI and financing options.</li>
+                </ul>
+            </section>
+            <section>
+                <h2>Contact Us</h2>
+                <p>Email: yadavbikeshowroom@01.com</p>
+                <p>Phone:  9876143576</p>
+                <p>Address: REWARI,HARYANA,123035</p>
+            </section>
+            <img src="https://imgs.search.brave.com/wVO-ICxfB20s_hpimVfEn_BMmjQa6dQcimQnHbZycCA/rs:fit:500:0:0:0/g:ce/aHR0cHM6Ly90NC5m/dGNkbi5uZXQvanBn/LzAyLzczLzc4LzMz/LzM2MF9GXzI3Mzc4/MzMyMl82TDFJYWVY/Mmc3aVF2YVhpZnky/Z2J2amlqZ2pXajI2/Zy5qcGc" class="img-fluid mt-3" alt="Bike Showroom">
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    {{> footer}}
+</body>
+</html>
